@@ -43,13 +43,19 @@ app.post('/items/import', function (req, res) {
 });
 
 app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
-    if(err) {
-      res.sendStatus(500);
-    } else {
-      res.json(data);
-    }
-  });
+  items.Item.find(function (err, beers) {
+    if (err) {console.log('err', err)} 
+    else {console.log('beers', beers)}
+  })
+
+
+  // items.selectAll(function(err, data) {
+  //   if(err) {
+  //     res.sendStatus(500);
+  //   } else {
+  //     res.json(data);
+  //   }
+  // });
   res.send('')
 });
 

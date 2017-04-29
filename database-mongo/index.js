@@ -21,10 +21,12 @@ var itemSchema = mongoose.Schema({
 var Item = mongoose.model('Item', itemSchema);
 
 var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+  Item.find(function(err, items) {
     if(err) {
+      console.log('HERE1')
       callback(err, null);
     } else {
+      console.log('HERE2')
       callback(null, items);
     }
   });
