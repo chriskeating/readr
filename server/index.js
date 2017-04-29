@@ -1,17 +1,17 @@
 var express = require('express');
-var request = require('request');
 var bodyParser = require('body-parser');
+var request = require('request');
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 // var items = require('../database-mysql');
 var items = require('../database-mongo');
 
 var app = express();
+app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
  
 
 // UNCOMMENT FOR REACT
-app.use(express.static(__dirname + '/../react-client/dist'));
 
 // UNCOMMENT FOR ANGULAR
 // app.use(express.static(__dirname + '/../angular-client'));
@@ -24,22 +24,22 @@ app.post('/items/import', function (req, res) {
     json: true}, 
     function (error, response, data) {
       if (error) {return console.log('error is', error)}
-      console.log('data', data);
+      // console.log('data', data);
       var abvRange = data.data.abvMin + ' - ' + data.data.abvMax;
       var ibuRange = data.data.ibuMin + ' - ' + data.data.ibuMax;
       var obj = new items.Item({
-        name: data.data.name,
-        abv: abvRange,
-        ibu: ibuRange,
-        description: data.data.description
+        'name': data.data.name,
+        'abv': abvRange,
+        'ibu': ibuRange,
+        'description': data.data.description
       })
-      // console.log('obj', obj)
+      // console.log('obj', obj) 
       obj.save(function (err, obj) {
-        if (err) {return console.log('The error is ', err)}
-        console.log('Saved!')
+        if (err) {return console.log('The error is ', err)
+        } else {console.log('Saved!') }
       })
   });
-  res.send('400');
+  res.send('Hey friend');
 });
 
 app.get('/items', function (req, res) {

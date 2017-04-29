@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: ['thign', 'thing'],
+      items: [],
       number: 1,
     }
     this.ComponentDidMount = this.ComponentDidMount.bind(this);
