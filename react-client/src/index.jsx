@@ -14,12 +14,12 @@ class App extends React.Component {
   }
 
   search () {
-    var postObj = {'styleId': this.state.number}
-    console.log(postObj)
+    var postObj = {'styleId': this.state.number};
+    // console.log(postObj)
     $.ajax({
       type: 'POST',
       url: '/items/import',
-      data: JSON.stringify(postObj),
+      data: postObj,
       success: (data => {
         console.log('success! here is the data', data)
       }),

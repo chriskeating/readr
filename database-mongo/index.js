@@ -13,10 +13,8 @@ db.once('open', function() {
 
 var itemSchema = mongoose.Schema({
   name: String,
-  style: String,
-  abv: Number,
-  ibu: Number,
-  srm: Number,
+  abv: String,
+  ibu: String,
   description: String
 });
 
@@ -33,3 +31,4 @@ var selectAll = function(callback) {
 };
 
 module.exports.selectAll = selectAll;
+module.exports.Item = Item;

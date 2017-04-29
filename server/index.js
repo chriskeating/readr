@@ -5,11 +5,10 @@ var bodyParser = require('body-parser');
 // var items = require('../database-mysql');
 var items = require('../database-mongo');
 
-
 var app = express();
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
  
-app.use(bodyParser.json())
 
 // UNCOMMENT FOR REACT
 app.use(express.static(__dirname + '/../react-client/dist'));
@@ -19,16 +18,28 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 // app.use(express.static(__dirname + '/../node_modules'));
 
 app.post('/items/import', function (req, res) {
-  request({url: `http://api.brewerydb.com/v2/?styleId=12&key=d8e2e00a81a4cc72656632058b00860d&format=json`, 
+  var typeId = parseInt(req.body.styleId)
+  request({url: `http://api.brewerydb.com/v2/styles?key=d8e2e00a81a4cc72656632058b00860d&styleId=${typeId}`, 
     headers: {'HTTP_ACCEPT': 'application/json'}, 
     json: true}, 
     function (error, response, data) {
-      // if (error) {return console.log('error is', error)}
-      // console.log('error', error);
-      // console.log('response', response);
+      if (error) {return console.log('error is', error)}
       console.log('data', data);
+      var abvRange = data.data.abvMin + ' - ' + data.data.abvMax;
+      var ibuRange = data.data.ibuMin + ' - ' + data.data.ibuMax;
+      var obj = new items.Item({
+        name: data.data.name,
+        abv: abvRange,
+        ibu: ibuRange,
+        description: data.data.description
+      })
+      // console.log('obj', obj)
+      obj.save(function (err, obj) {
+        if (err) {return console.log('The error is ', err)}
+        console.log('Saved!')
+      })
   });
-  res.send('200');
+  res.send('400');
 });
 
 app.get('/items', function (req, res) {

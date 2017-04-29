@@ -1,0 +1,27 @@
+{
+  "message":"Request Successful",
+  "data":{
+    "id":100,
+    "categoryId":8,
+    "category":{
+      "id":8,
+      "name":"North American Lager",
+      "createDate":"2012-03-21 20:06:46"
+    },
+    "name":"American-Style Malt Liquor",
+    "shortName":"Malt Liquor",
+    "description":"High in starting gravity and alcoholic strength, this style is somewhat diverse. Some American malt liquors are just slightly stronger than American lagers, while others approach bock strength. Some residual sweetness is perceived. Hop rates are very low, contributing little bitterness and virtually no hop aroma or flavor. Perception of sweet-fruity esters and complex alcohols (though not solvent-like) are acceptable at low levels. Chill haze and diacetyl should not be perceived.",
+    "ibuMin":"12",
+    "ibuMax":"23",
+    "abvMin":"6.25",
+    "abvMax":"7.5",
+    "srmMin":"2",
+    "srmMax":"5",
+    "ogMin":"1.05",
+    "fgMin":"1.004",
+    "fgMax":"1.01",
+    "createDate":"2012-03-21 20:06:46",
+    "updateDate":"2015-04-07 15:41:16"
+  },
+"status":"success"
+}
