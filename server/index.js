@@ -39,16 +39,15 @@ app.post('/items/import', function (req, res) {
         } else {console.log('Saved!') }
       })
   });
-  res.send('Hey friend');
+  res.send('Submitted');
 });
 
 app.get('/items', function (req, res) {
   items.Item.find(function (err, beers) {
     if (err) {console.log('err', err)} 
-    else {console.log('beers', beers)}
+    else {console.log(beers)}
+    res.send(beers)
   })
-
-
   // items.selectAll(function(err, data) {
   //   if(err) {
   //     res.sendStatus(500);
@@ -56,7 +55,7 @@ app.get('/items', function (req, res) {
   //     res.json(data);
   //   }
   // });
-  res.send('')
+  
 });
 
 app.listen(3000, function() {

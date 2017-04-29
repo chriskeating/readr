@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: ['thign'],
+      items: [],
       number: '1',
     }
     this.ComponentDidMount = this.ComponentDidMount.bind(this);
@@ -15,7 +15,6 @@ class App extends React.Component {
 
   search () {
     var postObj = {'styleId': this.state.number};
-    // console.log(postObj)
     $.ajax({
       type: 'POST',
       url: '/items/import',
@@ -30,22 +29,23 @@ class App extends React.Component {
   }
 
   ComponentDidMount() {
-    console.log('HERE3')
     $.ajax({
       type: 'GET',
       url: '/items', 
       contentType: 'application/json',
       success: (data) => {
-        this.setState({
-          items: data
-        })
-        console.log(this.state.items)
+        for (var i = 0; i < data.length; i++) {
+          this.state.items.push(data[i])
+          alert(JSON.stringify(data[i]))
+        }
       },
       error: (err) => {
         console.log('err', err)
       }
     });
+    this.render()
   }
+
   handleChange(e) {
     this.setState({
       number: e.target.value
@@ -53,17 +53,26 @@ class App extends React.Component {
   }
 
   render () {
-    // console.log('Here4')
     return (<div>
       <h1>What's In The Cooler™</h1>
       <List items={this.state.items}/>x
       <form action="">
         Enter Beer ID Type here : 
         <input type="text" name="beerType" value={this.state.number} onChange={this.handleChange.bind(this)} id='typeid'></input>
-        <button onClick={this.ComponentDidMount.bind(this)}>Search</button>
+        <button onClick={this.search.bind(this)}>Search</button>
+        <button onClick={this.ComponentDidMount.bind(this)}>Get</button>
       </form>
     </div>)
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+        
+
+
+
+        // console.log(this.state.items)
+        // this.state.items.push(JSON.parse(data))
+        // this.setState({
+        //   items: data
+        // })
