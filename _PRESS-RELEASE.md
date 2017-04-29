@@ -18,27 +18,36 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  What's In The Cooler™ - The Definitive Guide to World of Beer
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Become a more informed consumer (of beer) and find out more interesting information about your favorite beers.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  What's In The Cooler™ is an easy-to-use application that gives instant, in-depth access to information about mass-produced and craft beers. Become a more informed consumer so that you can make better pruchases at the supermarket, or become a beer connoisseur and impress all your friends at the bar. 
+
 
 ## Problem ##
   > Describe the problem your product solves.
+  Many people at the tavern ask for a Bud Light because they don't know what else to get. They are missing out on a more enjoyable experience because they aren't accessing the right information.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
-
+  Our product provides easy access in a way that even someone who has had a couple can still use our app to figure which beer to try next.
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  After a long week, it's important to have the right beer. Our website is presented in a work friendly way so you can do your research at work, run to the supermarket to pick up the beers you researched, and then sit back in your recliner and sip on your new favorite beer. Our in-depth access allows you find the right beer - for you. 
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
 
+
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  What's In The Cooler™ has really changed how I view beer. Before, I just picked a random beer like Budweiser at the bar or the supermarket, and I never thought about quality, style, or anything. With What's In The Cooler™, I can head to the supermarket or bar loaded with information about what I want to get. Beer-tastings have become a big hobby with me and my friends because I'm able to pick out such interesting beers. 
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  What's In The Cooler™ is a great resource for expanding your beer knowledge. It can be found at ckeatingnh.com/whatsinthecooler. Have fun and please drink responsibly! Disclaimer: you must be 21 years old to drink alcohol in the state of California.
