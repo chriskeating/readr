@@ -10,7 +10,7 @@ class App extends React.Component {
       items: [],
       number: '1',
     }
-    this.ComponentDidMount = this.ComponentDidMount.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   search () {
@@ -28,16 +28,15 @@ class App extends React.Component {
     })
   }
 
-  ComponentDidMount() {
+  componentDidMount() {
     $.ajax({
       type: 'GET',
       url: '/items', 
       contentType: 'application/json',
       success: (data) => {
-        for (var i = 0; i < data.length; i++) {
-          this.state.items.push(data[i])
-          alert(JSON.stringify(data[i]))
-        }
+        this.setState({
+          items: data
+        })
       },
       error: (err) => {
         console.log('err', err)
@@ -60,7 +59,7 @@ class App extends React.Component {
         Enter Beer ID Type here : 
         <input type="text" name="beerType" value={this.state.number} onChange={this.handleChange.bind(this)} id='typeid'></input>
         <button onClick={this.search.bind(this)}>Search</button>
-        <button onClick={this.ComponentDidMount.bind(this)}>Get</button>
+        <button onClick={this.componentDidMount.bind(this)}>Get Your Results</button>
       </form>
     </div>)
   }
@@ -73,6 +72,4 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
         // console.log(this.state.items)
         // this.state.items.push(JSON.parse(data))
-        // this.setState({
-        //   items: data
-        // })
+        // 
