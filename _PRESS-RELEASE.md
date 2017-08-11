@@ -18,7 +18,7 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
-  What's In The Cooler™ - The Definitive Guide to World of Beer
+  The Growler™ - The Definitive Guide to World of Beer
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
@@ -26,7 +26,7 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-  What's In The Cooler™ is an easy-to-use application that gives instant, in-depth access to information about mass-produced and craft beers. Become a more informed consumer so that you can make better pruchases at the supermarket, or become a beer connoisseur and impress all your friends at the bar. 
+  What's In The Cooler™ is an easy-to-use application that gives instant, in-depth access to information about mass-produced and craft beers. Become a more informed consumer so that you can make better purchases at the supermarket, or become a beer connoisseur and impress all your friends at the bar. 
 
 
 ## Problem ##
@@ -42,7 +42,7 @@ Once the project moves into development, the press release can be used as a touc
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
-
+  WITC™ is free, and always will be. Start using the product right away
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.

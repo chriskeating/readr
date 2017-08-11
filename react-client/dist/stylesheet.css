@@ -1,0 +1,65 @@
+.landing-page {
+  background: url(http://ronblacks.com/wp-content/uploads/2013/07/153359_60_redo_web.jpg) center center fixed;
+  background-size: 100%;
+  width: 100%;
+  height: screen.height;
+  filter: blur(.5px);
+}
+
+.full-page-1 {
+  height: 40vh;
+  width: 100%;
+  color: #502515;
+/*color: #fff;*/
+  font-size: 100px;
+  text-align: center;
+  margin: 415px 0 10px 0;
+  font-family: 'Cinzel', serif;
+}
+
+.header-image {
+  display: block;
+  margin: auto;
+  width: 0px;
+  height: auto;
+}
+
+.submit-form {
+  padding: 0 0 115px 500px;
+  align-content: center;
+  margin: 0 0 35px 50%;
+}
+
+.beer-input {
+  color: #fff;
+}
+
+.search-button {
+  border-radius: 7px;
+  background-color: #502515;
+  color: #fff;
+}
+
+.description {
+  font-size: 15px;
+}
+
+.left-list {
+  margin: 10px 0 0 30px;
+}
+
+.right-list {
+  margin: 32px 0 0 0;
+}
+
+.beer-style {
+  color: red;
+}
+
+.abv {
+  color: blue;
+}
+
+.ibu {
+  color: green;
+}

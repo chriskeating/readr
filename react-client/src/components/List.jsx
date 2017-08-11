@@ -3,10 +3,8 @@ import ListItem from './ListItem.jsx';
 
 const List = (props) => (
   <div>
-    <h4>Beers You Have Searched</h4>
-    <div></div>
-    There are { props.items.length } items.
-    { props.items.map(item => <ListItem key={item} item={item}/>)}
+    <div>You have searched <b>{ props.items.length }</b> beers. Please search responsibly.</div>
+    <div>{ props.items.slice((props.items.length-1)).map(item => <ListItem key={item} item={item}/>)}</div>
   </div>
 )
 
