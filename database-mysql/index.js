@@ -2,13 +2,21 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'test'
+  user     : 'ck',
+  password : 'pw',
+  database : 'Readr'
+});
+
+connection.connect(function (error) {
+  if (!!error) {
+    console.log(error)
+  } else {
+    console.log("Connected")
+  }
 });
 
 var selectAll = function(callback) {
-  connection.query('SELECT * FROM items', function(err, results, fields) {
+  connection.query('SELECT * FROM articles', function(err, results, fields) {
     if(err) {
       callback(err, null);
     } else {
@@ -71,6 +79,6 @@ module.exports.selectAll = selectAll;
 
 
 
-//   // module.exports = mysqlConnection;
+  module.exports.connection = connection;
 //   // module.exports.handleDisconnect = handleDisconnect();
 //   module.exports = connection;

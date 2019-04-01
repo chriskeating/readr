@@ -4,10 +4,11 @@ CREATE DATABASE test;
 
 USE test;
 
-CREATE TABLE items (
+CREATE TABLE articles (
   id int NOT NULL AUTO_INCREMENT,
-  quantity integer NOT NULL,
-  description varchar(50) NOT NULL,
+  link varchar(150) NOT NULL,
+  title varchar(150) NOT NULL,
+  poster varchar(150) NOT NULL,
   PRIMARY KEY (ID)
 );
 
