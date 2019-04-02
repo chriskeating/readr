@@ -136,7 +136,6 @@ class App extends React.Component {
           <input type="text" name="articleTitle" placeholder="Article Title Here" value={this.state.articleTitle} onChange={this.handleTitleChange.bind(this)} id='title'></input>
           <input type="text" name="articleLink" placeholder="Article Link Here" value={this.state.articleLink} onChange={this.handleLinkChange.bind(this)} id='link'></input>
           <input type="text" name="articleTitle" placeholder="Username Here" value={this.state.articlePoster} onChange={this.handlePosterChange.bind(this)} id='poster'></input>
-          
           <select onChange={this.handleCategoryChange.bind(this)} value={this.state.articleCategory}>
             <option value="select">Select</option>
             <option value="politics">Politics</option>
