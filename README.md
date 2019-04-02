@@ -21,11 +21,11 @@ DONE
 - Ability to post articles to database
 - Post to github 
 - Display all posted articles
+- Deploy live on heroku
+- Ability to add category/description to articles and filter view by article
 
 Here is the order in which I am thinking of building this out
-- Ability to add category to articles and filter view by article - April 5
 - Ability to comment and upvote/downvote on articles - April 11
-- Deploy live on heroku - April 15
 - Authentication - April 30
 - Convert articles to PDF for easy viewing (ads or no ads) - May 10
 - Scrape twitter for any articles posted by famous people - May 17
