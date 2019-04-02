@@ -1,66 +1,42 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
-var imports = require('../database-mysql/index.js'); //formerly items
-
+var imports = require('../database-mysql/index.js');
 var app = express();
+var port = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(__dirname + '/../react-client/dist')); 
-var port = process.env.PORT || 3000;
 
-// UNCOMMENT FOR REACT
+app.get('/links/sports', function (req, res) {
+  imports.connection.query("SELECT * FROM articles WHERE category = 'sports'", function (error, rows, fields) {
+    if (!!error) {
+      console.log("QUERY ERROR: " + error)
+    } else {
+      console.log("GET Success");
+      res.send(rows)
+    }
+  })
+})
 
-// UNCOMMENT FOR ANGULAR
-// app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
-
-
-/*
-app.post('/link', function (req, res) {
-  var link = req.body.link
-  request({url: `http://api.brewerydb.com/v2/styles?key=d8e2e00a81a4cc72656632058b00860d&styleId=${typeId}`, 
-    headers: {'HTTP_ACCEPT': 'application/json'}, 
-    json: true}, 
-    function (error, response, data) {
-      if (error) {return console.log('error is', error)}
-      // console.log('data', data);
-      var abvRange = data.data.abvMin + ' - ' + data.data.abvMax;
-      var ibuRange = data.data.ibuMin + ' - ' + data.data.ibuMax;
-      var obj = new items.Item({
-        'name': data.data.name,
-        'abv': abvRange,
-        'ibu': ibuRange,
-        'description': data.data.description
-      })
-      items.query(   
-      `SELECT id FROM users
-       WHERE username = '${query}'`
-      , function(err, results) {
-        if (err) {
-          console.log('queries.js: getUserId function failed', err);
-        } else {
-          callback(results);
-        }
-      })
-      // console.log('obj', obj) 
-      // obj.save(function (err, obj) {
-      //   if (err) {return console.log('The error is ', err)
-      //   } else {console.log('Saved!') }
-      // })
-  });
-  res.send('Submitted');
-}); */
+app.get('/links/politics', function (req, res) {
+  imports.connection.query("SELECT * FROM articles WHERE category = 'politics'", function (error, rows, fields) {
+    if (!!error) {
+      console.log("QUERY ERROR: " + error)
+    } else {
+      console.log("GET Success");
+      res.send(rows)
+    }
+  })
+})
 
 app.get('/links', function (req, res) {
-  // stuff here
   imports.connection.query("SELECT * FROM articles", function (error, rows, fields) {
     if (!!error) {
-      console.log("query error is " + error)
-      console.log("query error")
+      console.log("QUERY ERROR: " + error)
     } else {
-      console.log("successful query");
+      console.log("GET Success");
       res.send(rows)
     }
   })
@@ -71,39 +47,19 @@ app.post('/addlink',function(req,res){
     var title = req.body.articleTitle;
     var poster = req.body.articlePoster;
     var category = req.body.articleCategory;
+    var description = req.body.articleDescription;
     // console.log('link is ' + link + '; title is ' + title + '; poster is ' + poster);
     // var new = "var sql = "INSERT INTO articles (`title`, `link`, `poster`) VALUES ('" + link + "', '" + title + "', '" + poster + "')";"
-    var sql = "INSERT INTO articles (`title`, `link`, `username`, `category`) VALUES ('" + title + "', '" + link + "', '" + poster + "', '" + category + "')";
+    var sql = "INSERT INTO articles (`title`, `link`, `username`, `category`, `description`) VALUES ('" + title + "', '" + link + "', '" + poster + "', '" + category + "', '" + description + "')";
     imports.connection.query(sql, function (err, result) {
       if (err) {
-        console.log('error is ' + err);
+        console.log('QUERY ERROR: ' + err);
         throw err;
       }
-      console.log('successful post 1')
+      console.log('POST Success')
     });
 });
-
-// app.post ('/link', function (req, res) {
-//   var query = "Insert into links (title, link, poster) VALUES ('Hacker News', 'https://news.ycombinator.com', 'Chris')"
-// })
-//
-// app.get('/items', function (req, res) {
-//   items.Item.find(function (err, beers) {
-//     if (err) {console.log('err', err)} 
-//     else {console.log(beers)}
-//     res.send(beers)
-//   })
-  // items.selectAll(function(err, data) {
-  //   if(err) {
-  //     res.sendStatus(500);
-  //   } else {
-  //     res.json(data);
-  //   }
-  // });
-  
-// });
 
 app.listen(port, function() { //3000
   console.log('listening on port ' + port + '!');
 });
-
