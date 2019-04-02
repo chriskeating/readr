@@ -8,6 +8,7 @@ var app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(__dirname + '/../react-client/dist')); 
+var port = process.env.PORT || 3000;
 
 // UNCOMMENT FOR REACT
 
@@ -102,7 +103,7 @@ app.post('/addlink',function(req,res){
   
 // });
 
-app.listen(3306, function() { //3000
-  console.log('listening on port 3306!');
+app.listen(port, function() { //3000
+  console.log('listening on port ' + port + '!');
 });
 
