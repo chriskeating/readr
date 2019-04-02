@@ -15,13 +15,18 @@ Once you have all your packages installed, run
 `npm run server-dev` to get the program going in a dev environment. 
 
 
+DONE
+- Update Readme
+- Database creation
+- Ability to post articles to database
+- Post to github 
+- Display all posted articles
+
 Here is the order in which I am thinking of building this out
-1. display all posted articles - April 2
-2. Post to github - April 2
-3. Ability to add category to articles and filter view by article - April 5
-4. Ability to comment and upvote/downvote on articles - April 11
-5. Deploy live on heroku - April 15
-6. Authentication - April 30
-7. Convert articles to PDF for easy viewing (ads or no ads) - May 10
-8. Scrape twitter for any articles posted by famous people - May 17
-9. Chrome plugin - based on usersnap design - June 1
+- Ability to add category to articles and filter view by article - April 5
+- Ability to comment and upvote/downvote on articles - April 11
+- Deploy live on heroku - April 15
+- Authentication - April 30
+- Convert articles to PDF for easy viewing (ads or no ads) - May 10
+- Scrape twitter for any articles posted by famous people - May 17
+- Chrome plugin - based on usersnap design - June 1

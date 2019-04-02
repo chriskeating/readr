@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'ck',
-  password : 'pw',
-  database : 'Readr'
+  host     : 'remotemysql.com', //'localhost',
+  user     : 'KsiYxkIpax',// 'ck',
+  password : '9zxmfs5uXL',// 'pw',
+  database : 'KsiYxkIpax'// 'Readr'
 });
 
 connection.connect(function (error) {
@@ -15,17 +15,17 @@ connection.connect(function (error) {
   }
 });
 
-var selectAll = function(callback) {
-  connection.query('SELECT * FROM articles', function(err, results, fields) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, results);
-    }
-  });
-};
+// var selectAll = function(callback) {
+//   connection.query('SELECT * FROM articles', function(err, results, fields) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, results);
+//     }
+//   });
+// };
 
-module.exports.selectAll = selectAll;
+// module.exports.selectAll = selectAll;
 
 // var mysql = require('mysql');
 

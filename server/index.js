@@ -54,8 +54,9 @@ app.post('/link', function (req, res) {
 
 app.get('/links', function (req, res) {
   // stuff here
-  imports.connection.query("SELECT * FROM Articles", function (error, rows, fields) {
+  imports.connection.query("SELECT * FROM articles", function (error, rows, fields) {
     if (!!error) {
+      console.log("query error is " + error)
       console.log("query error")
     } else {
       console.log("successful query");
@@ -68,11 +69,15 @@ app.post('/addlink',function(req,res){
     var link = req.body.articleLink;
     var title = req.body.articleTitle;
     var poster = req.body.articlePoster;
+    var category = req.body.articleCategory;
     // console.log('link is ' + link + '; title is ' + title + '; poster is ' + poster);
     // var new = "var sql = "INSERT INTO articles (`title`, `link`, `poster`) VALUES ('" + link + "', '" + title + "', '" + poster + "')";"
-    var sql = "INSERT INTO articles (`title`, `link`, `poster`) VALUES ('" + link + "', '" + title + "', '" + poster + "')";
+    var sql = "INSERT INTO articles (`title`, `link`, `username`, `category`) VALUES ('" + title + "', '" + link + "', '" + poster + "', '" + category + "')";
     imports.connection.query(sql, function (err, result) {
-      if (err) {throw err;}
+      if (err) {
+        console.log('error is ' + err);
+        throw err;
+      }
       console.log('successful post 1')
     });
 });
@@ -97,7 +102,7 @@ app.post('/addlink',function(req,res){
   
 // });
 
-app.listen(3000, function() {
-  console.log('listening on port 3000!');
+app.listen(3306, function() { //3000
+  console.log('listening on port 3306!');
 });
 
