@@ -4,6 +4,7 @@ var request = require('request');
 var imports = require('../database-mysql/index.js');
 var app = express();
 var port = process.env.PORT || 3000;
+var stringify = require('json-stringify-safe');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -43,11 +44,11 @@ app.get('/links', function (req, res) {
 })
 
 app.post('/addlink',function(req,res){
-    var link = req.body.articleLink;
-    var title = req.body.articleTitle;
-    var poster = req.body.articlePoster;
-    var category = req.body.articleCategory;
-    var description = req.body.articleDescription;
+    var link = req.body.articleLink.replace(/'/g,"\'");
+    var title = req.body.articleTitle.replace(/'/g,"\'");
+    var poster = req.body.articlePoster.replace(/'/g,"\'");
+    var category = req.body.articleCategory.replace(/'/g,"\'");
+    var description = req.body.articleDescription.replace(/'/g,"\'");
     // console.log('link is ' + link + '; title is ' + title + '; poster is ' + poster);
     // var new = "var sql = "INSERT INTO articles (`title`, `link`, `poster`) VALUES ('" + link + "', '" + title + "', '" + poster + "')";"
     var sql = "INSERT INTO articles (`title`, `link`, `username`, `category`, `description`) VALUES ('" + title + "', '" + link + "', '" + poster + "', '" + category + "', '" + description + "')";
@@ -56,7 +57,41 @@ app.post('/addlink',function(req,res){
         console.log('QUERY ERROR: ' + err);
         throw err;
       }
-      console.log('POST Success')
+      // console.log('POST Success')
+    });
+});
+
+app.post('/addupvote',function(req,res){
+    var articleId = req.body.articleId;
+    var increment = req.body.increment;
+    // console.log('req is ' + JSON.stringify(req));
+    console.log(stringify(req.body));
+    // var new = "var sql = "INSERT INTO articles (`title`, `link`, `poster`) VALUES ('" + link + "', '" + title + "', '" + poster + "')";"
+    var sql = "UPDATE articles SET upvotes = upvotes + 1 WHERE id = '" + articleId + "'";
+    imports.connection.query(sql, function (err, result) {
+      if (err) {
+        console.log('QUERY ERROR: ' + err);
+        throw err;
+      }
+      // console.log('POST Success, increment by 1');
+      res.send("Affected rows: " + JSON.stringify(result.affectedRows))
+    });
+});
+
+app.post('/adddownvote',function(req,res){
+    var articleId = req.body.articleId;
+    var increment = req.body.increment;
+    // console.log('req is ' + JSON.stringify(req));
+    console.log(stringify(req.body));
+    // var new = "var sql = "INSERT INTO articles (`title`, `link`, `poster`) VALUES ('" + link + "', '" + title + "', '" + poster + "')";"
+    var sql = "UPDATE articles SET downvotes = downvotes + 1 WHERE id = '" + articleId + "'";
+    imports.connection.query(sql, function (err, result) {
+      if (err) {
+        console.log('QUERY ERROR: ' + err);
+        throw err;
+      }
+      // console.log('POST Success, increment by 1');
+      res.send("Affected rows: " + JSON.stringify(result.affectedRows))
     });
 });
 

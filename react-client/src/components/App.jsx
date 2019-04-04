@@ -18,6 +18,7 @@ class App extends React.Component {
     this.returnResults = this.returnResults.bind(this);
     this.returnSports = this.returnSports.bind(this);
     this.returnPolitics = this.returnPolitics.bind(this);
+    this.addUpvote = this.addUpvote.bind(this)
   }
 
   postArticle () {
@@ -39,6 +40,46 @@ class App extends React.Component {
         console.log('POST ERROR: ', err)
       }
     })
+  }
+
+  addUpvote (id) {
+    return function() {
+      var postObj = {
+        'articleId': id,
+        'increment': 1
+      } 
+      $.ajax({
+        type: 'POST',
+        url: '/addupvote',
+        data: postObj,
+        success: (data => {
+          console.log('POST DATA: ', data);
+        }),
+        error: (err) => {
+          console.log('POST ERROR: ', err)
+        }
+      })
+    }
+  }
+
+  addDownvote (id) {
+    return function() {
+      var postObj = {
+        'articleId': id,
+        'increment': 1
+      } 
+      $.ajax({
+        type: 'POST',
+        url: '/adddownvote',
+        data: postObj,
+        success: (data => {
+          console.log('POST DATA: ', data);
+        }),
+        error: (err) => {
+          console.log('POST ERROR: ', err)
+        }
+      })
+    }
   }
 
   returnResults () {
@@ -125,6 +166,8 @@ class App extends React.Component {
     })
   }
 
+
+
   componentDidMount () {this.returnResults()}
 
   render() {
@@ -152,7 +195,7 @@ class App extends React.Component {
         <button type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
         <button type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
         <div className="space">-</div>
-        {this.state.submitted.slice(0).reverse().map(article => <Article key={article.title} article={article} />)}
+        {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} addUpvote={this.addUpvote.bind(this)} addDownvote={this.addDownvote.bind(this)} />)}
       </div>
     </div>
     )
