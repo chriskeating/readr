@@ -12,13 +12,16 @@ class App extends React.Component {
       articlePoster: '',
       articleCategory: '',
       articleDescription: '',
-      submitted: []
+      submitted: [],
+      comments: ''
     }
     this.postArticle = this.postArticle.bind(this);
     this.returnResults = this.returnResults.bind(this);
     this.returnSports = this.returnSports.bind(this);
     this.returnPolitics = this.returnPolitics.bind(this);
-    this.addUpvote = this.addUpvote.bind(this)
+    // this.addUpvote = this.addUpvote.bind(this)
+    // this.addDownvote = this.addDownvote.bind(this)
+    // this.returnComments = this.returnComments.bind(this)
   }
 
   postArticle () {
@@ -40,46 +43,6 @@ class App extends React.Component {
         console.log('POST ERROR: ', err)
       }
     })
-  }
-
-  addUpvote (id) {
-    return function() {
-      var postObj = {
-        'articleId': id,
-        'increment': 1
-      } 
-      $.ajax({
-        type: 'POST',
-        url: '/addupvote',
-        data: postObj,
-        success: (data => {
-          console.log('POST DATA: ', data);
-        }),
-        error: (err) => {
-          console.log('POST ERROR: ', err)
-        }
-      })
-    }
-  }
-
-  addDownvote (id) {
-    return function() {
-      var postObj = {
-        'articleId': id,
-        'increment': 1
-      } 
-      $.ajax({
-        type: 'POST',
-        url: '/adddownvote',
-        data: postObj,
-        success: (data => {
-          console.log('POST DATA: ', data);
-        }),
-        error: (err) => {
-          console.log('POST ERROR: ', err)
-        }
-      })
-    }
   }
 
   returnResults () {
@@ -136,6 +99,29 @@ class App extends React.Component {
     });
   }
 
+  // returnComments (articleId) {
+  //   console.log('chris')
+  //   return function() {
+  //     console.log(articleId)
+  //     var getObj = {
+  //       'articleId': articleId
+  //     } 
+  //     $.ajax({
+  //       type: 'GET',
+  //       url: '/comments', 
+  //       data: getObj,
+  //       success: (data) => {
+  //         console.log('DATA: ', JSON.stringify(data));
+  //         var dataString = JSON.stringify(data);
+  //         this.setState({comments: dataString})
+  //       },
+  //       error: (err) => {
+  //         console.log('ERROR: ', err)
+  //       }
+  //     });
+  //   }
+  // }
+
   handleLinkChange(e) {
     this.setState({
       articleLink: e.target.value
@@ -166,15 +152,13 @@ class App extends React.Component {
     })
   }
 
-
-
   componentDidMount () {this.returnResults()}
 
   render() {
     return (
     <div>
       <div className="landing-page">
-        <h1 className="container-fluid full-page-1">Keating-Russ Readr™</h1>
+        <h1 className="container-fluid full-page-1">Reading app</h1>
         <form action="" className="submit-form">
           <input type="text" name="articleTitle" placeholder="Article Title Here" value={this.state.articleTitle} onChange={this.handleTitleChange.bind(this)} id='title'></input>
           <input type="text" name="articleLink" placeholder="Article Link Here" value={this.state.articleLink} onChange={this.handleLinkChange.bind(this)} id='link'></input>
@@ -195,7 +179,7 @@ class App extends React.Component {
         <button type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
         <button type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
         <div className="space">-</div>
-        {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} addUpvote={this.addUpvote.bind(this)} addDownvote={this.addDownvote.bind(this)} />)}
+        {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} />)}
       </div>
     </div>
     )

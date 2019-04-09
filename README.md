@@ -23,10 +23,19 @@ DONE
 - Display all posted articles
 - Deploy live on heroku
 - Ability to add category/description to articles and filter view by article
+- Ability to upvote/downvote on articles
 
-Here is the order in which I am thinking of building this out
-- Ability to comment and upvote/downvote on articles - April 11
+Features
+- Ability to display comments on articles - April 8s
+- Ability to comment on articles - April 11
+- Ability to post apostrophes - April 11
+- Filter all messages for particular user
+- Styling
 - Authentication - April 30
 - Convert articles to PDF for easy viewing (ads or no ads) - May 10
 - Scrape twitter for any articles posted by famous people - May 17
 - Chrome plugin - based on usersnap design - June 1
+- 
+
+Quick Wins
+- Re-render on vote
