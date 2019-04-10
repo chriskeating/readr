@@ -131,10 +131,10 @@ class App extends React.Component {
           // <input type="text" name="articleTitle" placeholder="Username Here" value={this.state.articlePoster} onChange={this.handlePosterChange.bind(this)} id='poster' required></input>
 
   render() {
-    return (
-    <div className="col-10">
+    return ( 
+    <div className="col-11">
       <div className="landing-page">
-        <h1 className="container-fluid full-page-1">The Keating-Russ Readr</h1>
+        <h1 className="page-title">The Keating-Russ Readr</h1>
         <form action="" className="submit-form">
           <input className="data-entry" type="text" name="articleTitle" placeholder="Article Title Here" value={this.state.articleTitle} onChange={this.handleTitleChange.bind(this)} id='title' required></input>
           <input className="data-entry" type="url" name="articleLink" placeholder="Article Link Here" value={this.state.articleLink} onChange={this.handleLinkChange.bind(this)} id='link' required></input>
@@ -157,16 +157,16 @@ class App extends React.Component {
             <option value="Self-Improvement">Self-Improvement</option>
             <option value="Written by Me">Written by Me!</option>
           </select>
-          <button type="submit" className="post-button" onClick={() => { this.postArticle();}} style={{cursor: 'pointer'}}>Post</button>
+          <button className="post-button button" type="submit" onClick={() => { this.postArticle();}} style={{cursor: 'pointer'}}>Post</button>
         </form>
         <textarea className="data-entry" type="text" name="articleDescription" placeholder="Why did you add this article?" value={this.state.articleDescription} onChange={this.handleDescriptionChange.bind(this)} id='description' style={{width: '40%', height: '100px'}}/>
       </div>
       <div>
         <div>There have been <b>{ this.state.submitted.length }</b> articles posted in Readr.</div>
         <div className="space">-</div>
-        <button type="button" onClick={() => { this.returnResults();}} style={{cursor: 'pointer'}}>All Articles</button>
-        <button type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
-        <button type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
+        <button className="button" type="button" onClick={() => { this.returnResults();}} style={{cursor: 'pointer'}}>All Articles</button>
+        <button className="button" type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
+        <button className="button" type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
         <div className="space">-</div>
         {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} />)}
       </div>

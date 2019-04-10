@@ -19,8 +19,9 @@
 
 
 [class*="col-"] {
-  float: left;
-  padding: 1% 8%;
+  float: center;
+  padding: 1% 8.33%;
+  margin-left: 4.165%
   /*border: 1px solid red;*/
 }
 
@@ -41,9 +42,13 @@ html {
   margin: 2% 0 0 5%;
 }
 
-.category-dropdown {}
+.category-dropdown {
+  border: 1px solid #c4daff;
+}
 
-.username-dropdown {}
+.username-dropdown {
+  border: 1px solid #c4daff;
+}
 
 .data-entry {
   border: 1px solid #c4daff;
@@ -53,13 +58,30 @@ html {
   border: 1px solid black;
 
 }
-/*.landing-page {
-  background: url(http://ronblacks.com/wp-content/uploads/2013/07/153359_60_redo_web.jpg) center center fixed;
-  background-size: 100%;
-  width: 100%;
-  height: screen.height;
-  /*filter: blur(.5px);
-}*/
+
+.page-title {
+  text-align: center;
+}
+
+.button {
+  border: 1px solid #c4daff;
+}
+
+.post-button {
+  border: 1px solid #c4daff;
+  background-color: #596375;
+  color: white;
+
+}
+
+.landing-page {
+  /*background: url(http://ronblacks.com/wp-content/uploads/2013/07/153359_60_redo_web.jpg) center center fixed;*/
+  /*background-size: 100%;*/
+  /*width: 100%;*/
+  /*height: screen.height;*/
+  /*filter: blur(.5px);*/
+  text-align: center;
+} 
 /* 
 .full-page-1 {
   height: 40vh;
