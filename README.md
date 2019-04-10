@@ -31,9 +31,9 @@ DONE
 - Re-render on vote
 - Add category: 2019 Cruise Preparation, Self-Improvements, Written by Me!
 - Link verification
+- Styling
 
 Features
-- Styling
 - Convert articles to PDF for easy viewing (ads or no ads)
 - Link info population
 - Weekly email sent with articles posted since last time

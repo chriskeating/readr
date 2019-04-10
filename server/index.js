@@ -98,9 +98,9 @@ app.post('/adddownvote',function(req,res){
 });
 
 app.post('/addcomment',function(req,res){
-  var articleId = req.body.articleId;
-  var username = req.body.username;
-  var text = req.body.text;
+  var articleId = req.body.articleId.replace(/'/g,"''");
+  var username = req.body.username.replace(/'/g,"''");
+  var text = req.body.text.replace(/'/g,"''");
   var sql = "INSERT INTO comments (`username`, `text`, `article_id`) VALUES ('" + username + "', '" + text + "', '" + articleId + "')";
   imports.connection.query(sql, function (err, result) {
     if (err) {
