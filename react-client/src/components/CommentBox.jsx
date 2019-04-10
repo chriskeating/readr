@@ -10,5 +10,4 @@ const CommentBox = (props) => (
   </div>
 )
 
-// { props.comment.name }
 export default CommentBox;
