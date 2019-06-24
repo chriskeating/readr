@@ -110,6 +110,8 @@ class Article extends React.Component {
 
   render() {
     return (
+    <div>
+    <div>
     <div className="article">
 	  	<div className="title"><a href={this.props.article.link} style={{cursor: 'pointer'}} target="_blank"> { this.props.article.title }</a> - <img onClick={() => this.addUpvote(this.props.article.id)} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/thumbs-up-circle-blue-512.png" width="15" height="15" style={{cursor: 'pointer'}} /> <p1>{ this.state.upvotes } -- </p1><img onClick={() => this.addDownvote(this.props.article.id)} src="http://www.clipartroo.com/images/8/thumbs-down-clipart-8326.png" width="15" height="15" style={{cursor: 'pointer'}} /> <p1>{ this.state.downvotes }</p1></div>
 	  	<div className="username"><b>Username: </b> {this.props.article.username}</div>
@@ -132,6 +134,8 @@ class Article extends React.Component {
       </form>
 		{this.state.comments.map(comment => <Comment key={comment.comment_id} comment={comment} />)}
 	</div>
+  </div>
+  </div>
     )
   }
 }

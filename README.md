@@ -32,12 +32,24 @@ DONE
 - Add category: 2019 Cruise Preparation, Self-Improvements, Written by Me!
 - Link verification
 - Styling
+- Recreate database
 
 Features
-- Convert articles to PDF for easy viewing (ads or no ads)
-- Link info population
-- Weekly email sent with articles posted since last time
-- Authentication
-- Filter all messages for particular user
+- Styling
+- Set up bit.ly/chris-keating-1 or something
+- Set up profile page with other links (Created by Chris Keating) 
 - Scrape twitter for any articles posted by famous people (with tweet as summary)
+
+- Convert articles to PDF for easy viewing (ads or no ads)
+- Authentication
 - Chrome plugin - based on usersnap design
+- Schedule for when these articles are relevant (Itinerary planning)
+- Map view for where these articles are relevant (Itinerary planning)
+- Sponsored travelers (Itinerary planning)
+- 
+
+Random/Boring
+- Error handling and what does the site do
+- Weekly email sent with articles posted since last time
+- Filter all messages for particular user
+- Link info population
