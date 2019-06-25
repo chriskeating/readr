@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Article from './Article.jsx';
 import Map from './Map.jsx';
+import Button from '@material-ui/core/Button';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -145,17 +147,18 @@ class App extends React.Component {
   componentDidMount () {this.returnResults()}
 
           // <input type="text" name="articleTitle" placeholder="Username Here" value={this.state.articlePoster} onChange={this.handlePosterChange.bind(this)} id='poster' required></input>
+          // <input className="coordinates-entry" type="number" name="lat-entry" placeholder="Latitude here" value={this.state.entryLatitude} onChange={this.handleLatChange.bind(this)} id='lat' required></input>
+          // <input className="coordinates-entry" type="number" name="long-entry" placeholder="Latitude here" value={this.state.entryLongitude} onChange={this.handleLongChange.bind(this)} id='long' required></input>
 
   render() {
     return ( 
     <div className="col-11">
+    {console.log("Made with <3 by Chris Keating 2019")}
       <div className="landing-page">
         <h1 className="page-title">The Keating-Russ Readr</h1>
         <form action="" className="submit-form">
           <input className="data-entry" type="text" name="articleTitle" placeholder="Article Title Here" value={this.state.articleTitle} onChange={this.handleTitleChange.bind(this)} id='title' required></input>
           <input className="data-entry" type="url" name="articleLink" placeholder="Article Link Here" value={this.state.articleLink} onChange={this.handleLinkChange.bind(this)} id='link' required></input>
-          <input className="coordinates-entry" type="number" name="lat-entry" placeholder="Latitude here" value={this.state.entryLatitude} onChange={this.handleLatChange.bind(this)} id='lat' required></input>
-          <input className="coordinates-entry" type="number" name="long-entry" placeholder="Latitude here" value={this.state.entryLongitude} onChange={this.handleLongChange.bind(this)} id='long' required></input>
           <select className="category-dropdown" onChange={this.handlePosterChange.bind(this)} value={this.state.articlePoster}>
             <option value="select">Select Your Name</option>
             <option value="Nina">Nina</option>
@@ -179,17 +182,15 @@ class App extends React.Component {
         </form>
         <textarea className="data-entry" type="text" name="articleDescription" placeholder="Why did you add this article?" value={this.state.articleDescription} onChange={this.handleDescriptionChange.bind(this)} id='description' style={{width: '40%', height: '100px'}}/>
       </div>
-
       <div>
         <div>There have been <b>{ this.state.submitted.length }</b> articles posted in Readr.</div>
-        <div className="space">-</div>
+        <div className="space"> </div>
         <button className="button" type="button" onClick={() => { this.returnResults();}} style={{cursor: 'pointer'}}>All Articles</button>
         <button className="button" type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
         <button className="button" type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
-        <div className="space">-</div>
+        <div className="space"> </div>
         {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} />)}
       </div>
-      <div className="space">-</div>
     </div>
     )
   }

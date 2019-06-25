@@ -33,10 +33,10 @@ DONE
 - Link verification
 - Styling
 - Recreate database
+- Set up bit.ly/chris-keating-1 or something
 
 Features
 - Styling
-- Set up bit.ly/chris-keating-1 or something
 - Set up profile page with other links (Created by Chris Keating) 
 - Scrape twitter for any articles posted by famous people (with tweet as summary)
 

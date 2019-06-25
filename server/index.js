@@ -107,7 +107,6 @@ app.post('/addcomment',function(req,res){
       console.log('QUERY ERROR: ' + err);
       throw err;
     }
-    console.log('success?')
     res.send("Affected rows: " + JSON.stringify(result.affectedRows))
   });
 });

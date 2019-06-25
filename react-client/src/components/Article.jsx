@@ -110,32 +110,32 @@ class Article extends React.Component {
 
   render() {
     return (
-    <div>
-    <div>
-    <div className="article">
-	  	<div className="title"><a href={this.props.article.link} style={{cursor: 'pointer'}} target="_blank"> { this.props.article.title }</a> - <img onClick={() => this.addUpvote(this.props.article.id)} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/thumbs-up-circle-blue-512.png" width="15" height="15" style={{cursor: 'pointer'}} /> <p1>{ this.state.upvotes } -- </p1><img onClick={() => this.addDownvote(this.props.article.id)} src="http://www.clipartroo.com/images/8/thumbs-down-clipart-8326.png" width="15" height="15" style={{cursor: 'pointer'}} /> <p1>{ this.state.downvotes }</p1></div>
-	  	<div className="username"><b>Username: </b> {this.props.article.username}</div>
-	  	<div className="category"><b>Category: </b> {this.props.article.category}</div>
-	  	{this.props.article.description != '' && <div className="description"><b>Description: </b> {this.props.article.description}</div>}
-	  	<form action="" className="submit-form">
-        <select className="username-dropdown" id='username' onChange={this.handleUsernameChange.bind(this)} value={this.state.commentUsername} required>
-          <option value="select">Select Your Name</option>
-          <option value="Nina">Nina</option>
-          <option value="Ted">Ted</option>
-          <option value="Kyleigh">Kyleigh</option>
-          <option value="Anthony">Anthony</option>
-          <option value="Carol">Carol</option>
-          <option value="Tony">Tony</option>
-          <option value="Kiwi">Kiwi</option>
-          <option value="Chris">Chris</option>
-        </select>
-        <input className="comment-entry" type="text" name="commentText" placeholder="Comment Here" value={this.state.commentText} onChange={this.handleCommentChange.bind(this)} id='comment' required></input>
-        <button type="submit" className="post-button" onClick={() => { this.addComment(this.props.article.id, this.state.commentUsername, this.state.commentText)}} style={{cursor: 'pointer'}}>Comment!</button>
-      </form>
-		{this.state.comments.map(comment => <Comment key={comment.comment_id} comment={comment} />)}
-	</div>
-  </div>
-  </div>
+      <div>
+        <div>
+          <div className="article">
+      	  	<div className="title"><a href={this.props.article.link} style={{cursor: 'pointer'}} target="_blank"> { this.props.article.title }</a> - <img onClick={() => this.addUpvote(this.props.article.id)} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/thumbs-up-circle-blue-512.png" width="15" height="15" style={{cursor: 'pointer'}} /> <p1>{ this.state.upvotes } -- </p1><img onClick={() => this.addDownvote(this.props.article.id)} src="http://www.clipartroo.com/images/8/thumbs-down-clipart-8326.png" width="15" height="15" style={{cursor: 'pointer'}} /> <p1>{ this.state.downvotes }</p1></div>
+      	  	<div className="username"><b>Username: </b> {this.props.article.username}</div>
+      	  	<div className="category"><b>Category: </b> {this.props.article.category}</div>
+      	  	{this.props.article.description != '' && <div className="description"><b>Description: </b> {this.props.article.description}</div>}
+      	  	<form action="" className="submit-form">
+              <select className="username-dropdown" id='username' onChange={this.handleUsernameChange.bind(this)} value={this.state.commentUsername} required>
+                <option value="select">Select Your Name</option>
+                <option value="Nina">Nina</option>
+                <option value="Ted">Ted</option>
+                <option value="Kyleigh">Kyleigh</option>
+                <option value="Anthony">Anthony</option>
+                <option value="Carol">Carol</option>
+                <option value="Tony">Tony</option>
+                <option value="Kiwi">Kiwi</option>
+                <option value="Chris">Chris</option>
+              </select>
+              <input className="comment-entry" type="text" name="commentText" placeholder="Comment Here" value={this.state.commentText} onChange={this.handleCommentChange.bind(this)} id='comment' required></input>
+              <button type="submit" className="post-button" onClick={() => { this.addComment(this.props.article.id, this.state.commentUsername, this.state.commentText)}} style={{cursor: 'pointer'}}>Comment!</button>
+            </form>
+      		{this.state.comments.map(comment => <Comment key={comment.comment_id} comment={comment} />)}
+      	</div>
+      </div>
+    </div>
     )
   }
 }
