@@ -39,6 +39,7 @@ Features
 - Styling
 - Set up profile page with other links (Created by Chris Keating) 
 - Scrape twitter for any articles posted by famous people (with tweet as summary)
+- Picture background and click on yourself to post article
 
 - Convert articles to PDF for easy viewing (ads or no ads)
 - Authentication

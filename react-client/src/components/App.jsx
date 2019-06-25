@@ -2,8 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Article from './Article.jsx';
+// import Names from './Menu.jsx';
 import Map from './Map.jsx';
 import Button from '@material-ui/core/Button';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import TextField from '@material-ui/core/TextField';
+import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+
+
+
+
+function MadeWithLove() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Built with love by Chris Keating'}
+    </Typography>
+  );
+}
+
+const styles = {
+  root: {
+    background: "white"
+  },
+  input: {
+    color: "black"
+  }
+};
 
 
 class App extends React.Component {
@@ -108,6 +144,7 @@ class App extends React.Component {
   }
 
   handleTitleChange(e) {
+    console.log('here')
     this.setState({
       articleTitle: e.target.value
     })
@@ -144,53 +181,138 @@ class App extends React.Component {
     })
   }
 
+
   componentDidMount () {this.returnResults()}
 
           // <input type="text" name="articleTitle" placeholder="Username Here" value={this.state.articlePoster} onChange={this.handlePosterChange.bind(this)} id='poster' required></input>
           // <input className="coordinates-entry" type="number" name="lat-entry" placeholder="Latitude here" value={this.state.entryLatitude} onChange={this.handleLatChange.bind(this)} id='lat' required></input>
           // <input className="coordinates-entry" type="number" name="long-entry" placeholder="Latitude here" value={this.state.entryLongitude} onChange={this.handleLongChange.bind(this)} id='long' required></input>
+          // <button className="post-button button" type="submit" onClick={() => { this.postArticle();}} style={{cursor: 'pointer'}}>Post</button>
+          // <input className="data-entry" type="url" name="articleLink" placeholder="Article Link Here" value={this.state.articleLink} onChange={this.handleLinkChange.bind(this)} id='link' required></input>
+          // <input className="data-entry" type="text" name="articleTitle" placeholder="Article Title Here" value={this.state.articleTitle} onChange={this.handleTitleChange.bind(this)} id='title' required></input>
+          // <textarea className="data-entry" type="text" name="articleDescription" placeholder="Why did you add this article?" value={this.state.articleDescription} onChange={this.handleDescriptionChange.bind(this)} id='description' style={{width: '40%', height: '100px'}}/>
+          //           <Box width="25%" bgcolor="grey.300" p={1} my={0.5}>
+          //   <Paper>
+          //     <MenuList>
+          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Nina")}}>Nina</MenuItem>
+          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Ted")}} >Ted</MenuItem>
+          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Kyleigh")}} >Kyleigh</MenuItem>
+          //     </MenuList>
+          //   </Paper>
+          // </Box>
+
+          //           <Box width="25%" bgcolor="grey.300" p={1} my={0.5}>
+          //   <Paper>
+          //     <MenuList>
+          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Nina")}}>Nina</MenuItem>
+          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Ted")}} >Ted</MenuItem>
+          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Kyleigh")}} >Kyleigh</MenuItem>
+          //     </MenuList>
+          //   </Paper>
+          // </Box>
 
   render() {
     return ( 
-    <div className="col-11">
-    {console.log("Made with <3 by Chris Keating 2019")}
+    <div >
+        <AppBar position="relative">
+          <Toolbar>
+            <Typography variant="h5" className={{alignItems: 'center'}} color="inherit">
+              Keating-Russ Readr
+            </Typography>
+          </Toolbar>
+        </AppBar>
       <div className="landing-page">
-        <h1 className="page-title">The Keating-Russ Readr</h1>
-        <form action="" className="submit-form">
-          <input className="data-entry" type="text" name="articleTitle" placeholder="Article Title Here" value={this.state.articleTitle} onChange={this.handleTitleChange.bind(this)} id='title' required></input>
-          <input className="data-entry" type="url" name="articleLink" placeholder="Article Link Here" value={this.state.articleLink} onChange={this.handleLinkChange.bind(this)} id='link' required></input>
-          <select className="category-dropdown" onChange={this.handlePosterChange.bind(this)} value={this.state.articlePoster}>
-            <option value="select">Select Your Name</option>
-            <option value="Nina">Nina</option>
-            <option value="Ted">Ted</option>
-            <option value="Kyleigh">Kyleigh</option>
-            <option value="Anthony">Anthony</option>
-            <option value="Carol">Carol</option>
-            <option value="Tony">Tony</option>
-            <option value="Kiwi">Kiwi</option>
-            <option value="Chris">Chris</option>
-          </select>
-          <select className="username-dropdown" onChange={this.handleCategoryChange.bind(this)} value={this.state.articleCategory}>
-            <option value="select">Select the Article Category</option>
-            <option value="Politics">Politics</option>
-            <option value="Sports">Sports</option>
-            <option value="Cruise">2019 Cruise Prep</option>
-            <option value="Self-Improvement">Self-Improvement</option>
-            <option value="Written by Me">Written by Me!</option>
-          </select>
-          <button className="post-button button" type="submit" onClick={() => { this.postArticle();}} style={{cursor: 'pointer'}}>Post</button>
-        </form>
-        <textarea className="data-entry" type="text" name="articleDescription" placeholder="Why did you add this article?" value={this.state.articleDescription} onChange={this.handleDescriptionChange.bind(this)} id='description' style={{width: '40%', height: '100px'}}/>
+          <Grid container spacing={2} className="col-11 grid-pic">
+            <Grid item xs={12} sm={6} className="test">
+               <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="title"
+                  label="Article Title"
+                  name="title"
+                  autoComplete="text"
+                  autoFocus
+                  value={this.state.articleTitle} 
+                  onChange={this.handleTitleChange.bind(this)}
+                />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                label="Your Name"
+                name="name"
+                autoFocus
+                autoComplete="name"
+                value={this.state.articlePoster} 
+                onChange={this.handlePosterChange.bind(this)}
+              />
+            </Grid>
+            <Grid item xs={12} sm={9}>
+               <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="link"
+                  label="Article Link"
+                  name="link"
+                  autoComplete="link"
+                  autoFocus
+                  value={this.state.articleLink} 
+                  onChange={this.handleLinkChange.bind(this)}
+                />
+            </Grid>
+            <Grid item xs={12} sm={3}>
+              <TextField
+                id="outlined-multiline-static"
+                label="Add a tag"
+                fullWidth
+                rows="4"
+                margin="normal"
+                variant="outlined"
+                onChange={this.handleCategoryChange.bind(this)} 
+                value={this.state.articleCategory}
+              />
+            </Grid>
+            <Grid item xs={12}>
+            <TextField
+              id="outlined-multiline-static"
+              label="Why are you sharing?"
+              multiline
+              fullWidth
+              rows="4"
+              margin="normal"
+              variant="outlined"
+              value={this.state.articleDescription} 
+              onChange={this.handleDescriptionChange.bind(this)}
+            />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControlLabel
+                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                label="Send an email to Chris to let him know you posted."
+              />
+            </Grid>
+          </Grid>
+          <Button variant="contained" color="primary" type="submit" onClick={() => { this.postArticle(); this.returnResults();}} style={{cursor: 'pointer'}} >Submit</Button>
       </div>
-      <div>
+      <div className="col-11">
         <div>There have been <b>{ this.state.submitted.length }</b> articles posted in Readr.</div>
         <div className="space"> </div>
         <button className="button" type="button" onClick={() => { this.returnResults();}} style={{cursor: 'pointer'}}>All Articles</button>
         <button className="button" type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
         <button className="button" type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
-        <div className="space"> </div>
         {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} />)}
       </div>
+      <Box mt={5}>
+        <MadeWithLove />
+      </Box>
     </div>
     )
   }
