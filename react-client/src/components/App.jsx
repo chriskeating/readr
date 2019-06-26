@@ -319,9 +319,6 @@ class App extends React.Component {
                   onChange={this.handleCategoryChange.bind(this)}
                   input={<OutlinedInput name="category" id="outlined-age-simple" />}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
                   <MenuItem value="sports">Sports</MenuItem>
                   <MenuItem value="business">Business</MenuItem>
                   <MenuItem value="politics">Politics/News</MenuItem>
