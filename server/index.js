@@ -67,6 +67,7 @@ app.post('/addlink',function(req,res){
       console.log('QUERY ERROR: ' + err);
       throw err;
     }
+    res.send(result)
   });
 });
 

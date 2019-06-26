@@ -20,26 +20,36 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 
+
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 
 
 function MadeWithLove() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Built with love by Chris Keating'}
+      {'Built by Chris Keating'}
     </Typography>
   );
 }
-
-const styles = {
-  root: {
-    background: "white"
-  },
-  input: {
-    color: "black"
-  }
-};
 
 
 class App extends React.Component {
@@ -76,6 +86,14 @@ class App extends React.Component {
       data: postObj,
       success: (data => {
         console.log('POST DATA: ', data);
+        this.setState({
+          articleLink: '',
+          articleTitle: '',
+          articlePoster: '',
+          articleCategory: '',
+          articleDescription: ''
+        })
+        console.log(this.state)
       }),
       error: (err) => {
         console.log('POST ERROR: ', err)
@@ -209,21 +227,37 @@ class App extends React.Component {
           //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Kyleigh")}} >Kyleigh</MenuItem>
           //     </MenuList>
           //   </Paper>
-          // </Box>
+        //   // </Box>
+        //   <button className="button" type="button" onClick={() => { this.returnResults();}} style={{cursor: 'pointer'}}>All Articles</button>
+        // <button className="button" type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
+        // <button className="button" type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
+              //         <TextField
+              //   variant="outlined"
+              //   margin="normal"
+              //   required
+              //   fullWidth
+              //   id="name"
+              //   label="Your Name"
+              //   name="name"
+              //   autoFocus
+              //   autoComplete="name"
+              //   value={this.state.articlePoster} 
+              //   onChange={this.handlePosterChange.bind(this)}
+              // />
 
   render() {
     return ( 
     <div >
         <AppBar position="relative">
           <Toolbar>
-            <Typography variant="h5" className={{alignItems: 'center'}} color="inherit">
+            <Typography variant="h5" color="inherit">
               Keating-Russ Readr
             </Typography>
           </Toolbar>
         </AppBar>
       <div className="landing-page">
           <Grid container spacing={2} className="col-11 grid-pic">
-            <Grid item xs={12} sm={6} className="test">
+            <Grid item xs={12} sm={6}>
                <TextField
                   variant="outlined"
                   margin="normal"
@@ -239,24 +273,30 @@ class App extends React.Component {
                 />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="Your Name"
-                name="name"
-                autoFocus
-                autoComplete="name"
-                value={this.state.articlePoster} 
-                onChange={this.handlePosterChange.bind(this)}
-              />
+              <FormControl variant="outlined" className="formControl" margin="normal">
+                <InputLabel ref={null} htmlFor="outlined-age-simple">
+                  Poster
+                </InputLabel>
+                <Select
+                  required
+                  value={this.state.articlePoster}
+                  onChange={this.handlePosterChange.bind(this)}
+                  input={<OutlinedInput name="age" id="outlined-age-simple" />}
+                >
+                  <MenuItem value="Kyleigh">Kyleigh</MenuItem>
+                  <MenuItem value="Anthony">Anthony</MenuItem>
+                  <MenuItem value="Ted">Ted</MenuItem>
+                  <MenuItem value="Nina">Nina</MenuItem>
+                  <MenuItem value="Carol">Carol</MenuItem>
+                  <MenuItem value="Tony">Tony</MenuItem>
+                  <MenuItem value="Kiwi">Kiwi</MenuItem>
+                  <MenuItem value="Chris">Chris</MenuItem>
+                </Select>
+              </FormControl>
             </Grid>
             <Grid item xs={12} sm={9}>
                <TextField
                   variant="outlined"
-                  margin="normal"
                   required
                   fullWidth
                   id="link"
@@ -269,16 +309,27 @@ class App extends React.Component {
                 />
             </Grid>
             <Grid item xs={12} sm={3}>
-              <TextField
-                id="outlined-multiline-static"
-                label="Add a tag"
-                fullWidth
-                rows="4"
-                margin="normal"
-                variant="outlined"
-                onChange={this.handleCategoryChange.bind(this)} 
-                value={this.state.articleCategory}
-              />
+              <FormControl variant="outlined" className="formControl">
+                <InputLabel ref={null} htmlFor="outlined-age-simple">
+                  Category
+                </InputLabel>
+                <Select
+                  required
+                  value={this.state.articleCategory}
+                  onChange={this.handleCategoryChange.bind(this)}
+                  input={<OutlinedInput name="category" id="outlined-age-simple" />}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value="sports">Sports</MenuItem>
+                  <MenuItem value="business">Business</MenuItem>
+                  <MenuItem value="politics">Politics/News</MenuItem>
+                  <MenuItem value="travel">Travel</MenuItem>
+                  <MenuItem value="health">Health & Fitness</MenuItem>
+                  <MenuItem value="self">Written by Me</MenuItem>
+                </Select>
+              </FormControl>
             </Grid>
             <Grid item xs={12}>
             <TextField
@@ -286,7 +337,7 @@ class App extends React.Component {
               label="Why are you sharing?"
               multiline
               fullWidth
-              rows="4"
+              rows="5"
               margin="normal"
               variant="outlined"
               value={this.state.articleDescription} 
@@ -304,10 +355,6 @@ class App extends React.Component {
       </div>
       <div className="col-11">
         <div>There have been <b>{ this.state.submitted.length }</b> articles posted in Readr.</div>
-        <div className="space"> </div>
-        <button className="button" type="button" onClick={() => { this.returnResults();}} style={{cursor: 'pointer'}}>All Articles</button>
-        <button className="button" type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
-        <button className="button" type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
         {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} />)}
       </div>
       <Box mt={5}>
