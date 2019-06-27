@@ -120,18 +120,6 @@ class Article extends React.Component {
 
   componentDidMount () {this.returnComments(this.props.article.id)}
 
-              // <select className="username-dropdown" id='username' onChange={this.handleUsernameChange.bind(this)} value={this.state.commentUsername} required>
-              //   <option value="select">Select Your Name</option>
-              //   <option value="Nina">Nina</option>
-              //   <option value="Ted">Ted</option>
-              //   <option value="Kyleigh">Kyleigh</option>
-              //   <option value="Anthony">Anthony</option>
-              //   <option value="Carol">Carol</option>
-              //   <option value="Tony">Tony</option>
-              //   <option value="Kiwi">Kiwi</option>
-              //   <option value="Chris">Chris</option>
-              // </select>
-
   render() {
     return (
       <div>

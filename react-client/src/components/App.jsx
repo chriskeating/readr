@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Article from './Article.jsx';
-// import Names from './Menu.jsx';
 import Map from './Map.jsx';
 import Button from '@material-ui/core/Button';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -201,49 +200,6 @@ class App extends React.Component {
 
 
   componentDidMount () {this.returnResults()}
-
-          // <input type="text" name="articleTitle" placeholder="Username Here" value={this.state.articlePoster} onChange={this.handlePosterChange.bind(this)} id='poster' required></input>
-          // <input className="coordinates-entry" type="number" name="lat-entry" placeholder="Latitude here" value={this.state.entryLatitude} onChange={this.handleLatChange.bind(this)} id='lat' required></input>
-          // <input className="coordinates-entry" type="number" name="long-entry" placeholder="Latitude here" value={this.state.entryLongitude} onChange={this.handleLongChange.bind(this)} id='long' required></input>
-          // <button className="post-button button" type="submit" onClick={() => { this.postArticle();}} style={{cursor: 'pointer'}}>Post</button>
-          // <input className="data-entry" type="url" name="articleLink" placeholder="Article Link Here" value={this.state.articleLink} onChange={this.handleLinkChange.bind(this)} id='link' required></input>
-          // <input className="data-entry" type="text" name="articleTitle" placeholder="Article Title Here" value={this.state.articleTitle} onChange={this.handleTitleChange.bind(this)} id='title' required></input>
-          // <textarea className="data-entry" type="text" name="articleDescription" placeholder="Why did you add this article?" value={this.state.articleDescription} onChange={this.handleDescriptionChange.bind(this)} id='description' style={{width: '40%', height: '100px'}}/>
-          //           <Box width="25%" bgcolor="grey.300" p={1} my={0.5}>
-          //   <Paper>
-          //     <MenuList>
-          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Nina")}}>Nina</MenuItem>
-          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Ted")}} >Ted</MenuItem>
-          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Kyleigh")}} >Kyleigh</MenuItem>
-          //     </MenuList>
-          //   </Paper>
-          // </Box>
-
-          //           <Box width="25%" bgcolor="grey.300" p={1} my={0.5}>
-          //   <Paper>
-          //     <MenuList>
-          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Nina")}}>Nina</MenuItem>
-          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Ted")}} >Ted</MenuItem>
-          //       <MenuItem onClick={()=>{this.handlePosterChange.bind(this).apply("Kyleigh")}} >Kyleigh</MenuItem>
-          //     </MenuList>
-          //   </Paper>
-        //   // </Box>
-        //   <button className="button" type="button" onClick={() => { this.returnResults();}} style={{cursor: 'pointer'}}>All Articles</button>
-        // <button className="button" type="button" onClick={() => { this.returnSports();}} style={{cursor: 'pointer'}}>Sports Articles</button>
-        // <button className="button" type="button" onClick={() => { this.returnPolitics();}} style={{cursor: 'pointer'}}>Politics Articles</button>
-              //         <TextField
-              //   variant="outlined"
-              //   margin="normal"
-              //   required
-              //   fullWidth
-              //   id="name"
-              //   label="Your Name"
-              //   name="name"
-              //   autoFocus
-              //   autoComplete="name"
-              //   value={this.state.articlePoster} 
-              //   onChange={this.handlePosterChange.bind(this)}
-              // />
 
   render() {
     return ( 
