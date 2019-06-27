@@ -34,11 +34,10 @@ DONE
 - Styling
 - Recreate database
 - Set up bit.ly/chris-keating-1 or something
-
-Features
 - Styling
 - Lists for name/category - if quick
 
+Features
 - Picture background and click on yourself to post article
 - Scrape twitter for any articles posted by famous people (with tweet as summary)
 - Set up profile page with other links (Created by Chris Keating) 

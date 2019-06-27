@@ -11,6 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 
 
@@ -137,7 +138,7 @@ class Article extends React.Component {
         <div>
           <div className="article">
             <Typography variant="h5" className="title article-block">
-              <a href={this.props.article.link} style={{cursor: 'pointer'}} target="_blank"> { this.props.article.title }</a> - <img onClick={() => this.addUpvote(this.props.article.id)} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/thumbs-up-circle-blue-512.png" width="15" height="15" style={{cursor: 'pointer'}} /> <p1>{ this.state.upvotes } -- </p1><img onClick={() => this.addDownvote(this.props.article.id)} src="http://www.clipartroo.com/images/8/thumbs-down-clipart-8326.png" width="15" height="15" style={{cursor: 'pointer'}} /> <p1>{ this.state.downvotes }</p1>
+              <a href={this.props.article.link} style={{cursor: 'pointer'}} target="_blank"> { this.props.article.title }</a><img onClick={() => this.addUpvote(this.props.article.id)} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/thumbs-up-circle-blue-512.png" width="15" height="15" style={{cursor: 'pointer'}} className="margin-left"/> <p1>{ this.state.upvotes }</p1><img onClick={() => this.addDownvote(this.props.article.id)} src="http://www.clipartroo.com/images/8/thumbs-down-clipart-8326.png" width="15" height="15" style={{cursor: 'pointer'}} className="margin-left"/> <p1>{ this.state.downvotes }</p1>
             </Typography>
             <Typography variant="body2" className="username article-block">
               <b>Username: </b> {this.props.article.username}
@@ -148,8 +149,9 @@ class Article extends React.Component {
             {this.props.article.description != '' && <Typography variant="body2" className="description article-block"><b>Description: </b> {this.props.article.description}</Typography>}
 
       		{this.state.comments.map(comment => <Comment key={comment.comment_id} comment={comment} />)}
-            <form className="article-block">
-              <FormControl variant="outlined" className="formControl-comment-name">
+             <Grid container spacing={2} className="col-11 blank-pic">
+              <Grid item xs={12} sm={3}>
+              <FormControl variant="outlined" className="formControl">
                 <InputLabel ref={null} htmlFor="outlined-age-simple">
                   Commenter
                 </InputLabel>
@@ -170,9 +172,12 @@ class Article extends React.Component {
                   <MenuItem value="Chris">Chris</MenuItem>
                 </Select>
               </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={7}>
               <TextField
                   variant="outlined"
                   required
+                  fullWidth
                   className="formControl-comment-text"
                   id="comment"
                   label="Comment Here"
@@ -182,8 +187,11 @@ class Article extends React.Component {
                   value={this.state.commentText} 
                   onChange={this.handleCommentChange.bind(this)}
                 />
-              <Button className="divider" variant="contained" color="primary" type="submit" onClick={() => { this.addComment(this.props.article.id, this.state.commentUsername, this.state.commentText)}} style={{cursor: 'pointer'}} >Comment</Button>
-            </form>
+              </Grid>
+              <Grid item xs={12} sm={2} className="vert">
+                <Button className="divider" variant="contained" color="primary" type="submit" onClick={() => { this.addComment(this.props.article.id, this.state.commentUsername, this.state.commentText)}} style={{cursor: 'pointer'}} >Comment</Button>
+              </Grid>
+              </Grid>
       	</div>
       </div>
       <Divider className="divider"/>

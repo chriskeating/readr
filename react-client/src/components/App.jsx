@@ -247,14 +247,15 @@ class App extends React.Component {
 
   render() {
     return ( 
-    <div >
-        <AppBar position="relative">
-          <Toolbar>
-            <Typography variant="h5" color="inherit">
-              Keating-Russ Readr
-            </Typography>
-          </Toolbar>
-        </AppBar>
+    <div className="">
+      <div>
+      <AppBar position="relative">
+        <Toolbar>
+          <Typography variant="h5" color="inherit">
+            Keating-Russ Readr
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <div className="landing-page">
           <Grid container spacing={2} className="col-11 grid-pic">
             <Grid item xs={12} sm={6}>
@@ -347,14 +348,17 @@ class App extends React.Component {
                 label="Send an email to Chris to let him know you posted."
               />
             </Grid>
+            <Grid item xs={12}>
+              <Button variant="contained" color="primary" type="submit" onClick={() => { this.postArticle(); this.returnResults();}} style={{cursor: 'pointer'}} >Submit</Button>
+            </Grid>
           </Grid>
-          <Button variant="contained" color="primary" type="submit" onClick={() => { this.postArticle(); this.returnResults();}} style={{cursor: 'pointer'}} >Submit</Button>
       </div>
-      <div className="col-11">
-        <div>There have been <b>{ this.state.submitted.length }</b> articles posted in Readr.</div>
+      </div>
+      <div className="col-11 articles">
+        <div className="articles-header">There have been <b>{ this.state.submitted.length }</b> articles posted in Readr.</div>
         {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} />)}
       </div>
-      <Box mt={5}>
+      <Box mt={3}>
         <MadeWithLove />
       </Box>
     </div>
