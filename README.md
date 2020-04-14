@@ -9,14 +9,14 @@ If you're having issues with node, run
 
 `sudo rm -rf /usr/local/lib/node_modules/npm`
 `brew reinstall node`
-
+ 
 
 Once you have all your packages installed, run
 `npm run server-dev` to get the server going in a dev environment and
 `npm run react-dev` to display the front-end
 
 
-Past
+Done
 - Update Readme
 - Database creation
 - Ability to post articles to database

@@ -3,14 +3,11 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'remotemysql.com',
   // host     : 'localhost',
-  user     : 'uUU7YFAJk3',
-  // user     : 'KsiYxkIpax',
+  user     : 'IC5BAdfBIp',
   // user     : 'ck',
-  password : 'PLlV0GsU6Q',
-  // password : '9zxmfs5uXL',
+  password : 'p6VhULppby',
   // password : 'pw',
-  database : 'uUU7YFAJk3'
-  // database : 'KsiYxkIpax'
+  database : 'IC5BAdfBIp'
   // database : 'Readr'
 });
 
