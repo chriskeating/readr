@@ -208,7 +208,7 @@ class App extends React.Component {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h5" color="inherit">
-            Keating-Russ Readr
+            Share interesting reading resources here! If you like or dislike an article, please comment with why you think that way!
           </Typography>
         </Toolbar>
       </AppBar>
@@ -230,26 +230,19 @@ class App extends React.Component {
                 />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <FormControl variant="outlined" className="formControl" margin="normal">
-                <InputLabel ref={null} htmlFor="outlined-age-simple">
-                  Poster
-                </InputLabel>
-                <Select
+              <TextField
+                  variant="outlined"
+                  margin="normal"
                   required
-                  value={this.state.articlePoster}
+                  fullWidth
+                  id="title"
+                  label="Your Name"
+                  name="poster"
+                  autoComplete="text"
+                  autoFocus
+                  value={this.state.articlePoster} 
                   onChange={this.handlePosterChange.bind(this)}
-                  input={<OutlinedInput name="age" id="outlined-age-simple" />}
-                >
-                  <MenuItem value="Kyleigh">Kyleigh</MenuItem>
-                  <MenuItem value="Anthony">Anthony</MenuItem>
-                  <MenuItem value="Ted">Ted</MenuItem>
-                  <MenuItem value="Nina">Nina</MenuItem>
-                  <MenuItem value="Carol">Carol</MenuItem>
-                  <MenuItem value="Tony">Tony</MenuItem>
-                  <MenuItem value="Kiwi">Kiwi</MenuItem>
-                  <MenuItem value="Chris">Chris</MenuItem>
-                </Select>
-              </FormControl>
+                />
             </Grid>
             <Grid item xs={12} sm={9}>
                <TextField
@@ -276,12 +269,12 @@ class App extends React.Component {
                   onChange={this.handleCategoryChange.bind(this)}
                   input={<OutlinedInput name="category" id="outlined-age-simple" />}
                 >
-                  <MenuItem value="sports">Sports</MenuItem>
-                  <MenuItem value="business">Business</MenuItem>
-                  <MenuItem value="politics">Politics/News</MenuItem>
-                  <MenuItem value="travel">Travel</MenuItem>
-                  <MenuItem value="health">Health & Fitness</MenuItem>
-                  <MenuItem value="self">Written by Me</MenuItem>
+                  <MenuItem value="Sports">Sports</MenuItem>
+                  <MenuItem value="Business">Business</MenuItem>
+                  <MenuItem value="Politics">Politics/News</MenuItem>
+                  <MenuItem value="Travel">Travel</MenuItem>
+                  <MenuItem value="Health">Health & Fitness</MenuItem>
+                  <MenuItem value="Self-written">Written by Me</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -321,5 +314,27 @@ class App extends React.Component {
     )
   }
 }
+
+              // <FormControl variant="outlined" className="formControl" margin="normal">
+              //   <InputLabel ref={null} htmlFor="outlined-age-simple">
+              //     Poster
+              //   </InputLabel>
+              //   <Select
+              //     input={<OutlinedInput name="age" id="outlined-age-simple" />}
+              //   >
+              //     <MenuItem value="Kyleigh">Kyleigh</MenuItem>
+              //     <MenuItem value="Anthony">Anthony</MenuItem>
+              //     <MenuItem value="Matthew">Matthew</MenuItem>
+              //     <MenuItem value="Candice">Candice</MenuItem>
+              //     <MenuItem value="Mike">Mike</MenuItem>
+              //     <MenuItem value="Carol">Carol</MenuItem>
+              //     <MenuItem value="Tony">Tony</MenuItem>
+              //     <MenuItem value="Ted">Ted</MenuItem>
+              //     <MenuItem value="Nina">Nina</MenuItem>
+              //     <MenuItem value="Kiwi">Kiwi</MenuItem>
+              //     <MenuItem value="Chris">Chris</MenuItem>
+              //     <MenuItem value="Guest">I'm a Guest!</MenuItem>
+              //   </Select>
+              // </FormControl>
 
 export default App;

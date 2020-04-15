@@ -37,6 +37,8 @@ Past
 - Grid for name/category
 
 Future
+- Send notification whenever someone adds an article
+- Ability to add pictures / PDF	
 - Picture background and click on yourself to post article
 - Scrape twitter for any articles posted by famous people (with tweet as summary)
 - Convert articles to PDF for easy viewing (ads or no ads)

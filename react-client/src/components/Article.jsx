@@ -58,6 +58,10 @@ class Article extends React.Component {
       data: postObj,
       success: (data => {
         console.log('POST DATA: ', data);
+        this.setState({
+          commentUsername: '',
+          commentText: ''
+        })
       }),
       error: (err) => {
         console.log('POST ERROR: ', err)
@@ -126,7 +130,7 @@ class Article extends React.Component {
         <div>
           <div className="article">
             <Typography variant="h5" className="title article-block">
-              <a href={this.props.article.link} style={{cursor: 'pointer'}} target="_blank"> { this.props.article.title }</a><img onClick={() => this.addUpvote(this.props.article.id)} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/thumbs-up-circle-blue-512.png" width="15" height="15" style={{cursor: 'pointer'}} className="margin-left"/> <p1>{ this.state.upvotes }</p1><img onClick={() => this.addDownvote(this.props.article.id)} src="http://www.clipartroo.com/images/8/thumbs-down-clipart-8326.png" width="15" height="15" style={{cursor: 'pointer'}} className="margin-left"/> <p1>{ this.state.downvotes }</p1>
+              <a href={this.props.article.link} style={{cursor: 'pointer'}} target="_blank"> { this.props.article.title }</a><img onClick={() => this.addUpvote(this.props.article.id)} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/thumbs-up-circle-blue-512.png" width="15" height="15" style={{cursor: 'pointer'}} className="margin-left"/> <p1>{ this.state.upvotes }</p1><img onClick={() => this.addDownvote(this.props.article.id)} src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/thumbs-down-circle-red-512.png" width="15" height="15" style={{cursor: 'pointer'}} className="margin-left"/> <p1>{ this.state.downvotes }</p1>
             </Typography>
             <Typography variant="body2" className="username article-block">
               <b>Username: </b> {this.props.article.username}
@@ -139,34 +143,26 @@ class Article extends React.Component {
       		{this.state.comments.map(comment => <Comment key={comment.comment_id} comment={comment} />)}
              <Grid container spacing={2} className="col-11 blank-pic">
               <Grid item xs={12} sm={3}>
-              <FormControl variant="outlined" className="formControl">
-                <InputLabel ref={null} htmlFor="outlined-age-simple">
-                  Commenter
-                </InputLabel>
-                <Select
+              <TextField
+                  variant="outlined"
+                  
+                  required
+                  fullWidth
+                  id="commentUsername"
+                  label="Your Name"
+                  name="commentUsername"
+                  autoComplete="text"
+                  autoFocus
                   value={this.state.commentUsername}
                   onChange={this.handleUsernameChange.bind(this)}
-                  fullWidth
-                  className=""
-                  input={<OutlinedInput name="commenter" id="outlined-commenter-simple" />}
-                >
-                  <MenuItem value="Nina">Nina</MenuItem>
-                  <MenuItem value="Ted">Ted</MenuItem>
-                  <MenuItem value="Carol">Carol</MenuItem>
-                  <MenuItem value="Tony">Tony</MenuItem>
-                  <MenuItem value="Kyleigh">Kyleigh</MenuItem>
-                  <MenuItem value="Anthony">Anthony</MenuItem>
-                  <MenuItem value="Kiwi">Kiwi</MenuItem>
-                  <MenuItem value="Chris">Chris</MenuItem>
-                </Select>
-              </FormControl>
-              </Grid>
-              <Grid item xs={12} sm={7}>
+                />
+            </Grid>
+            <Grid item xs={12} sm={7}>
               <TextField
                   variant="outlined"
                   required
                   fullWidth
-                  className="formControl-comment-text"
+                  // className="formControl-comment-text"
                   id="comment"
                   label="Comment Here"
                   name="comment"
@@ -177,7 +173,7 @@ class Article extends React.Component {
                 />
               </Grid>
               <Grid item xs={12} sm={2} className="vert">
-                <Button className="divider" variant="contained" color="primary" type="submit" onClick={() => { this.addComment(this.props.article.id, this.state.commentUsername, this.state.commentText)}} style={{cursor: 'pointer'}} >Comment</Button>
+                <Button className="divider" variant="contained" color="primary" type="submit" onClick={() => { this.addComment(this.props.article.id, this.state.commentUsername, this.state.commentText); this.returnComments(this.props.article.id)}} style={{cursor: 'pointer'}} >Comment</Button>
               </Grid>
               </Grid>
       	</div>
@@ -187,5 +183,33 @@ class Article extends React.Component {
     )
   }
 }
+
+              // <Grid item xs={12} sm={3}>
+              // <FormControl variant="outlined" className="formControl">
+              //   <InputLabel ref={null} htmlFor="outlined-age-simple">
+              //     Commenter
+              //   </InputLabel>
+              //   <Select
+              //     value={this.state.commentUsername}
+              //     onChange={this.handleUsernameChange.bind(this)}
+              //     fullWidth
+              //     className=""
+              //     input={<OutlinedInput name="commenter" id="outlined-commenter-simple" />}
+              //   >
+              //     <MenuItem value="Kyleigh">Kyleigh</MenuItem>
+              //     <MenuItem value="Anthony">Anthony</MenuItem>
+              //     <MenuItem value="Matthew">Matthew</MenuItem>
+              //     <MenuItem value="Candice">Candice</MenuItem>
+              //     <MenuItem value="Mike">Mike</MenuItem>
+              //     <MenuItem value="Carol">Carol</MenuItem>
+              //     <MenuItem value="Tony">Tony</MenuItem>
+              //     <MenuItem value="Ted">Ted</MenuItem>
+              //     <MenuItem value="Nina">Nina</MenuItem>
+              //     <MenuItem value="Kiwi">Kiwi</MenuItem>
+              //     <MenuItem value="Chris">Chris</MenuItem>
+              //     <MenuItem value="Guest">I'm a Guest!</MenuItem>
+              //   </Select>
+              // </FormControl>
+              // </Grid>
 
 export default Article;

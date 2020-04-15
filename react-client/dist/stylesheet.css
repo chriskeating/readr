@@ -114,7 +114,9 @@ html {
 }
 
 .grid-pic {
-  background: url(https://ckeatingnh-images.s3.us-east-2.amazonaws.com/for_chris_site_2.jpg) center center fixed;
+ /* background: url(https://ckeatingnh-images.s3.us-east-2.amazonaws.com/for_chris_site_2.jpg) center center fixed;*/
+  /*background: url(https://images.squarespace-cdn.com/content/53cbed3de4b0c984e431b64d/1497192167692-VLUVQTJTBBNOITJUF0LE/open-book.jpg?format=2500w&content-type=image%2Fjpeg) center center fixed;*/
+  
   background-size: 100%;
   width: 100%;
   height: 100%;
