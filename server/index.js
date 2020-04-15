@@ -10,6 +10,18 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(__dirname + '/../react-client/dist')); 
 
+setInterval(function(){ 
+  console.log('hello')
+  imports.connection.query("SELECT 1", function (error, rows, fields) {
+      if (!!error) {
+        console.log("QUERY ERROR: " + error)
+      } else {
+        console.log("GET Success");
+      }
+  })
+
+ }, 299999);
+
 app.get('/links', function (req, res) {
   imports.connection.query("SELECT * FROM articles", function (error, rows, fields) {
     if (!!error) {
