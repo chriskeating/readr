@@ -23,8 +23,9 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Alert from '@material-ui/lab/Alert';
 
-
+ 
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -212,6 +213,7 @@ class App extends React.Component {
           </Typography>
         </Toolbar>
       </AppBar>
+      <Alert severity="info">If you're a guest, feel free to click around and post an article! Please just add your name (real or fake!) in the description box!</Alert>
       <div className="landing-page">
           <Grid container spacing={2} className="col-11 grid-pic">
             <Grid item xs={12} sm={6}>
@@ -294,7 +296,7 @@ class App extends React.Component {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="Send an email to Chris to let him know you posted."
+                label="Send an email to Chris to let him know you posted." 
               />
             </Grid>
             <Grid item xs={12}>
