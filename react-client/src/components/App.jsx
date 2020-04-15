@@ -213,7 +213,7 @@ class App extends React.Component {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Alert severity="info">If you're a guest, feel free to click around and post an article! Please just post your name or make one up!</Alert>
+      <Alert severity="info">If you're a guest, feel free to click around and post an article! Please just add your name (real or fake!) in the description box!</Alert>
       <div className="landing-page">
           <Grid container spacing={2} className="col-11 grid-pic">
             <Grid item xs={12} sm={6}>
@@ -244,10 +244,13 @@ class App extends React.Component {
                 >
                   <MenuItem value="Kyleigh">Kyleigh</MenuItem>
                   <MenuItem value="Anthony">Anthony</MenuItem>
-                  <MenuItem value="Ted">Ted</MenuItem>
-                  <MenuItem value="Nina">Nina</MenuItem>
+                  <MenuItem value="Matthew">Matthew</MenuItem>
+                  <MenuItem value="Candice">Candice</MenuItem>
+                  <MenuItem value="Mike">Mike</MenuItem>
                   <MenuItem value="Carol">Carol</MenuItem>
                   <MenuItem value="Tony">Tony</MenuItem>
+                  <MenuItem value="Ted">Ted</MenuItem>
+                  <MenuItem value="Nina">Nina</MenuItem>
                   <MenuItem value="Kiwi">Kiwi</MenuItem>
                   <MenuItem value="Chris">Chris</MenuItem>
                   <MenuItem value="Guest">I'm a Guest!</MenuItem>
