@@ -1,32 +1,46 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
+var pool  = mysql.createPool({
+  connectionLimit : 10,
   host     : 'remotemysql.com',
-  // host     : 'localhost',
   user     : 'IC5BAdfBIp',
-  // user     : 'ck',
   password : 'p6VhULppby',
-  // password : 'pw',
   database : 'IC5BAdfBIp'
-  // database : 'Readr'
 });
 
-// connection.on('error', function() {});
-
-
-connection.connect(function (error) {
-  if (!!error) {
-    console.log(error)
-  } else {
-    connection.on('error', function(err) {
-      console.log(err.code);
-    });
-  }
+pool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
 });
 
-connection.on('error', function(err) {
-  console.log(err.code);
-});
+
+
+
+// var connection = mysql.createConnection({
+//   host     : 'remotemysql.com',
+//   // host     : 'localhost',
+//   user     : 'IC5BAdfBIp',
+//   // user     : 'ck',
+//   password : 'p6VhULppby',
+//   // password : 'pw',
+//   database : 'IC5BAdfBIp'
+//   // database : 'Readr'
+// });
+
+// // connection.on('error', function() {});
+
+
+// connection.connect(function (error) {
+//   if (!!error) {
+//     console.log(error)
+//   } else {
+//   }
+// });
+
+// connection.on('error', function(err) {
+//   console.log(err.code);
+//   console.log(err);
+// });
 
 // __________
 
@@ -69,4 +83,4 @@ connection.on('error', function(err) {
 
 
 
-module.exports.connection = connection;
+module.exports.connection = pool;
