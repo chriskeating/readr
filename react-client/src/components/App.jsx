@@ -209,11 +209,11 @@ class App extends React.Component {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h5" color="inherit">
-            Share interesting reading resources here! If you like or dislike an article, please comment with why you think that way!
+            Share interesting reading resources!
           </Typography>
         </Toolbar>
       </AppBar>
-      <Alert severity="info">If you're a guest, feel free to click around and post an article! Please just add your name (real or fake!) in the description box!</Alert>
+      <Alert severity="info">For anyone visiting this page from Chris' resume, feel free to click around and post an article! Please just add your name (real or fake!) in the description box!</Alert>
       <div className="landing-page">
           <Grid container spacing={2} className="col-11 grid-pic">
             <Grid item xs={12} sm={6}>
