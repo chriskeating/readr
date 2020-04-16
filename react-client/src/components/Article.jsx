@@ -62,6 +62,7 @@ class Article extends React.Component {
           commentUsername: '',
           commentText: ''
         })
+        this.returnComments(articleId);
       }),
       error: (err) => {
         console.log('POST ERROR: ', err)

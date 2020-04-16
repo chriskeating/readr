@@ -93,7 +93,8 @@ class App extends React.Component {
           articleCategory: '',
           articleDescription: ''
         })
-        console.log(this.state)
+        this.returnResults();
+        console.log(this.state);
       }),
       error: (err) => {
         console.log('POST ERROR: ', err)
@@ -213,7 +214,7 @@ class App extends React.Component {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Alert severity="info">For anyone visiting this page from Chris' resume, feel free to click around and post an article! Please just add your name (real or fake!) in the description box!</Alert>
+      <Alert severity="info">For anyone visiting this page from Chris résumé, feel free to click around and post an article (you can use a fake name too)! Find the code repository and my LinkedIn at the bottom of the page.</Alert>
       <div className="landing-page">
           <Grid container spacing={2} className="col-11 grid-pic">
             <Grid item xs={12} sm={6}>
@@ -300,7 +301,7 @@ class App extends React.Component {
               />
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" color="primary" type="submit" onClick={() => { this.postArticle(); this.returnResults();}} style={{cursor: 'pointer'}} >Submit</Button>
+              <Button variant="contained" color="primary" type="submit" onClick={() => { this.postArticle();}}>Submit</Button>
             </Grid>
           </Grid>
       </div>
@@ -309,6 +310,18 @@ class App extends React.Component {
         <div className="articles-header">There have been <b>{ this.state.submitted.length }</b> articles posted in Readr.</div>
         {this.state.submitted.slice(0).reverse().map(article => <Article key={article.id} article={article} />)}
       </div>
+      <Grid container spacing={2} className="grid-pic landing-page">
+          <Grid item xs={12} xs={6}>
+            <Button variant="contained" color="primary" href="https://github.com/ckeating-nh/readr" className="top-button" style={{alignContent: 'right'}}>
+              Code Repository
+            </Button>
+          </Grid>
+          <Grid item xs={12} xs={6}>
+            <Button variant="contained" color="primary" href="https://www.linkedin.com/in/ckeating-nh/" className="top-button" style={{cursor: 'pointer'}}>
+              My LinkedIn
+            </Button>
+          </Grid>
+          </Grid>
       <Box mt={3}>
         <MadeWithLove />
       </Box>
