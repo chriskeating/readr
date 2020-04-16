@@ -214,7 +214,7 @@ class App extends React.Component {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Alert severity="info">For anyone visiting this page from Chris résumé, feel free to click around and post an article (you can use a fake name too)! Find the code repository and my LinkedIn at the bottom of the page.</Alert>
+      <Alert severity="info">For anyone visiting this page from Chris' résumé, feel free to click around and post an article (you can use a fake name too)! Find the code repository and my LinkedIn at the bottom of the page.</Alert>
       <div className="landing-page">
           <Grid container spacing={2} className="col-11 grid-pic">
             <Grid item xs={12} sm={6}>
