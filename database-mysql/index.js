@@ -2,17 +2,21 @@ var mysql = require('mysql');
 
 var pool  = mysql.createPool({
   connectionLimit : 10,
-  host     : 'remotemysql.com',
-  user     : 'IC5BAdfBIp',
-  password : 'p6VhULppby',
-  database : 'IC5BAdfBIp'
+  host     : 'sql9.freemysqlhosting.net',
+  // host     : 'localhost',
+  user     : 'sql9350205',
+  // user     : 'ck',
+  password : 'b3T7EtuS9G',
+  // password : 'pw',
+  database : 'sql9350205'
+  // database : 'Readr'
 });
 
 pool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
   if (error) throw error;
   console.log('The solution is: ', results[0].solution);
 });
-
+ 
 
 
 

@@ -22,6 +22,10 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 //  }, 299999);
 
+app.get('/',(req,res) => {
+return res.send('Hello');
+});
+
 app.get('/links', function (req, res) {
   imports.connection.query("SELECT * FROM articles", function (error, rows, fields) {
     if (!!error) {
