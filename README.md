@@ -1,8 +1,16 @@
-My family is a bunch of nerds and we love to share articles with each other, commenting, debating, and just sharing our thoughts. We always share articles and make comments by email, but articles get lost in everyone's inbox after a day or two. I built this so that we had a place to nerd out and share interesting things we read and get some thoughts/ideas flowing. It's still quite basic but I plan on adding more soon. 
+If you've come here from my resume, there are a couple things to note:
+1. You can find the actual demo that uses this code at bit.ly/ck-demo-1
+2. This demo is mainly to demonstrate my technical skills, but most of this project is actually something I built for my family to use as our method of sharing interesting articles - there's more on that below. 
+3. Please reach out to me on LinkedIn if you find this interesting - I'd love to hear any feedback or if you're able to break the app completely
+
+Original README starts below:
+__________________
+
+My family is a bunch of nerds and we love to share articles with each other, commenting, debating, and just sharing our thoughts. We always share articles and make comments by email, but articles get lost in everyone's inbox after a day or two. I built this so that we had a place to nerd out and share interesting things we read and get some thoughts/ideas flowing. As you can see from the list below, I plan on adding more features soon. 
 
 Here's some techinal stuff:
 
-To get started, type in the Terminal 
+To get started, clone the repo and type in the Terminal 
 `npm install`
 
 If you're having issues with node, run 
@@ -14,6 +22,8 @@ If you're having issues with node, run
 Once you have all your packages installed, run
 `npm run server-dev` to get the server going in a dev environment and
 `npm run react-dev` to display the front-end
+
+You can find the local version at http://localhost:3000/
 
 
 Done
@@ -35,6 +45,10 @@ Done
 - Set up bit.ly
 - Styling
 - Grid for name/category
+- Add banners
+- Add code repo + LinkedIn links
+- Update post + comment name from select list to free text 
+- Implement server connection pool to prevent server timeout
 
 Future
 - Send notification whenever someone adds an article
